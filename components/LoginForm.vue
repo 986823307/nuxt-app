@@ -1,21 +1,56 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { vAutoAnimate } from '@formkit/auto-animate/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { toast } from 'vue-sonner'
+import * as z from 'zod'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
     class?: HTMLAttributes['class']
 }>()
+
+const { fetch: refreshSession } = useUserSession()
+
+const formSchema = toTypedSchema(z.object({
+    email: z.string().email('请输入有效的邮箱'),
+    password: z.string().min(6, '密码不少于6个字数'),
+}))
+
+const { isFieldDirty, handleSubmit } = useForm({
+    validationSchema: formSchema,
+})
+
+const onSubmit = handleSubmit((values) => {
+    console.log('表单提交!', values)
+    $fetch('/api/user/login', {
+        method: 'POST',
+        body: {
+            ...values,
+        },
+    }).then((data) => {
+        console.log('登录响应数据', data)
+        // 将token保存到cookie中
+        refreshSession().then(() => {
+            navigateTo('/')
+        })
+    }).catch((e) => {
+        toast('登录提示', {
+            description: e.data.message,
+        })
+    })
+})
 </script>
 
 <template>
   <div :class="cn('flex flex-col gap-6', props.class)">
     <Card class="overflow-hidden p-0">
       <CardContent class="grid p-0 md:grid-cols-2">
-        <form class="p-6 md:p-8">
+        <form class="p-6 md:p-8" @submit="onSubmit">
           <div class="flex flex-col gap-6">
             <div class="flex flex-col items-center text-center">
               <h1 class="text-2xl font-bold">
@@ -25,28 +60,25 @@ const props = defineProps<{
                 登录你的账户
               </p>
             </div>
-            <div class="grid gap-3">
-              <Label for="email">邮箱</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-              />
-            </div>
-            <div class="grid gap-3">
-              <div class="flex items-center">
-                <Label for="password">密码</Label>
-                <a
-                  href="#"
-                  class="ml-auto text-sm underline-offset-2 hover:underline"
-                >
-                  忘记了密码？
-                </a>
-              </div>
-              <Input id="password" type="password" required />
-            </div>
-            <Button type="submit" class="w-full">
+            <FormField v-slot="{ componentField }" name="email" :validate-on-blur="!isFieldDirty">
+              <FormItem v-auto-animate>
+                <FormLabel>邮箱</FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="请输入有效的邮箱" v-bind="componentField" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            </FormField>
+            <FormField v-slot="{ componentField }" name="password" :validate-on-blur="!isFieldDirty">
+              <FormItem v-auto-animate>
+                <FormLabel>密码</FormLabel>
+                <FormControl>
+                  <Input type="password" placeholder="请输入您的密码" v-bind="componentField" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            </FormField>
+            <Button type="submit" class="w-full cursor-pointer">
               登录
             </Button>
             <div class="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">

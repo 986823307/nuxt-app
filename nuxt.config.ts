@@ -19,7 +19,7 @@ export default defineNuxtConfig({
                 ['defineStore', 'definePiniaStore'],
             ],
         },
-    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt'],
+    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt', 'nuxt-auth-utils'],
     shadcn: {
         /**
          * Prefix for all the imported component

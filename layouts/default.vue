@@ -4,7 +4,6 @@
 
 <template>
   <div>
-    <div>头部</div>
     <slot />
   </div>
 </template>
