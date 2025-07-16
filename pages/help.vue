@@ -4,10 +4,7 @@
 
 <template>
   <div>
-    <LayoutHeader />
-    <div class="px-20 py-5">
-      <slot />
-    </div>
+    帮助页
   </div>
 </template>
 

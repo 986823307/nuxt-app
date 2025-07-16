@@ -125,9 +125,9 @@ const onSubmit = handleSubmit((values) => {
         </form>
         <div class="bg-muted relative hidden md:block">
           <img
-            src="/public/placeholder.svg"
+            src="/public/architecture-5585737_1280.jpg"
             alt="Image"
-            class="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+            class="absolute inset-0 h-full w-full object-cover dark:grayscale"
           >
         </div>
       </CardContent>

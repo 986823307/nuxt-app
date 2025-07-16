@@ -19,7 +19,7 @@ export default defineNuxtConfig({
                 ['defineStore', 'definePiniaStore'],
             ],
         },
-    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt', 'nuxt-auth-utils'],
+    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt', 'nuxt-auth-utils', '@nuxt/ui', '@nuxtjs/color-mode'],
     shadcn: {
         /**
          * Prefix for all the imported component
@@ -44,6 +44,10 @@ export default defineNuxtConfig({
             tailwindcss(),
         ],
     },
+    ui: {
+        // 禁用google字体，以免启动项目国内获取慢堵塞项目启动
+        fonts: false,
+    },
     css: ['~/assets/css/main.css'],
     app: {
         head: {
@@ -55,5 +59,16 @@ export default defineNuxtConfig({
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
             ],
         },
+    },
+    colorMode: {
+        preference: 'system', // default value of $colorMode.preference
+        fallback: 'light', // fallback value if not system preference found
+        hid: 'nuxt-color-mode-script',
+        globalName: '__NUXT_COLOR_MODE__',
+        componentName: 'ColorScheme',
+        classPrefix: '',
+        classSuffix: '',
+        storage: 'cookie', // or 'sessionStorage' or 'cookie'
+        storageKey: 'nuxt-color-mode',
     },
 })
