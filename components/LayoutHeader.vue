@@ -23,7 +23,7 @@ const currentLocale = ref(locale.value)
       <!-- 右侧按钮部分 -->
       <div class="flex items-center gap-2 flex-1 justify-end">
         <!-- 主题切换按钮 -->
-        <ColorModeButton />
+        <ColorModeSelect />
         <!-- 客服按钮 -->
         <UButton
           icon="i-lucide-message-circle-more"

@@ -60,5 +60,11 @@
     "about": "About",
     "help": "Help"
   },
-  "login": "log on"
+  "login": "log on",
+  "colorMode": {
+    "light": "bright",
+    "dark": "dark",
+    "sepia": "eye protection",
+    "system": "Follow the system"
+  }
 }

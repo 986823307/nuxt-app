@@ -60,5 +60,11 @@
     "about": "关于",
     "help": "帮助"
   },
-  "login": "登录"
+  "login": "登录",
+  "colorMode": {
+    "light": "明亮",
+    "dark": "暗黑",
+    "sepia": "护眼",
+    "system": "跟随系统"
+  }
 }
