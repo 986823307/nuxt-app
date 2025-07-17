@@ -1,20 +1,21 @@
 <script lang="ts" setup>
 definePageMeta({
-    title: 'pages.title.home',
+    title: 'pages.title.user',
 })
+
 const { t } = useI18n()
 
 useSeoMeta({
-    description: t('pages.home.description'),
+    description: t('pages.user.description'),
 })
 </script>
 
 <template>
   <div>
-    {{ $t('welcome') }}
+    {{ $t('userCenter') }}
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

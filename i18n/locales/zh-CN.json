@@ -1,0 +1,64 @@
+{
+  "welcome": "欢迎",
+  "about": "关于",
+  "help": "帮助",
+  "brandStory": "品牌故事",
+  "companyProfile": "公司简介",
+  "userCenter": "个人中心",
+  "emailError": "请输入有效的邮箱",
+  "passwordError": "密码不少于6个字数",
+  "loginTip": "登录提示",
+  "welcomeBack": "欢迎回来",
+  "loginYourAccount": "登录你的账户",
+  "emailPlaceholder": "请输入有效的邮箱",
+  "passwordPlaceholder": "请输入您的密码",
+  "orUseTheFollowingMethods": "或者用以下方式",
+  "noAccount": "没有账户",
+  "register": "注册",
+  "clickNextToAgree": "点击下一步即同意",
+  "rulesAgreement": "规则协议",
+  "and": "和",
+  "privacyAgreement": "隐私协议",
+  "userDescription": "这个人很懒,简介什么都没有呀...",
+  "joinTime": "加入时间",
+  "logout": "登出",
+  "logoutConfirm": "确定要登出吗?",
+  "logoutDescription": "登出后,您将需要重新登录.",
+  "cancel": "取消",
+  "email": "邮箱",
+  "password": "密码",
+  "loginInfoWrong": "账号或密码错误",
+  "layouts": {
+    "title": "初始NUXT"
+  },
+  "pages": {
+    "title": {
+      "home": "Nuxt 应用",
+      "login": "登录",
+      "help": "帮助",
+      "user": "用户中心"
+    },
+    "home": {
+      "description": "这是我的神奇的网站，让我告诉你关于它的一切。",
+      "languages": "zh-CN"
+    },
+    "login": {
+      "description": "登录你的账户",
+      "languages": "zh-CN"
+    },
+    "help": {
+      "description": "帮助",
+      "languages": "zh-CN"
+    },
+    "user": {
+      "description": "用户",
+      "languages": "zh-CN"
+    }
+  },
+  "headerTab": {
+    "home": "首页",
+    "about": "关于",
+    "help": "帮助"
+  },
+  "login": "登录"
+}

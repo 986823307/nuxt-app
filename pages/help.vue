@@ -1,10 +1,18 @@
 <script lang="ts" setup>
+definePageMeta({
+    title: 'pages.title.help',
+})
 
+const { t } = useI18n()
+
+useSeoMeta({
+    description: t('pages.help.description'),
+})
 </script>
 
 <template>
   <div>
-    帮助页
+    {{ $t('help') }}
   </div>
 </template>
 

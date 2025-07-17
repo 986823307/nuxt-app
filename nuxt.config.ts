@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
+import { currentLocales } from './i18n/currentLocales'
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
@@ -19,7 +20,7 @@ export default defineNuxtConfig({
                 ['defineStore', 'definePiniaStore'],
             ],
         },
-    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt', 'nuxt-auth-utils', '@nuxt/ui', '@nuxtjs/color-mode'],
+    ], 'pinia-plugin-persistedstate/nuxt', '@vueuse/nuxt', 'shadcn-nuxt', 'nuxt-auth-utils', '@nuxt/ui', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
     shadcn: {
         /**
          * Prefix for all the imported component
@@ -60,6 +61,7 @@ export default defineNuxtConfig({
             ],
         },
     },
+    // 颜色主题配置
     colorMode: {
         preference: 'system', // default value of $colorMode.preference
         fallback: 'light', // fallback value if not system preference found
@@ -70,5 +72,26 @@ export default defineNuxtConfig({
         classSuffix: '',
         storage: 'cookie', // or 'sessionStorage' or 'cookie'
         storageKey: 'nuxt-color-mode',
+    },
+    // 国际化配置
+    i18n: {
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'i18n_redirected',
+            redirectOn: 'root', // 推荐
+        },
+        // 路由策略 除默认语言外，所有路由都会添加语言前缀。
+        strategy: 'prefix_except_default',
+        defaultLocale: 'en',
+        lazy: true,
+        locales: currentLocales,
+        experimental: {
+            localeDetector: 'localeDetector.ts',
+        },
+        vueI18n: 'i18n.config.ts',
+        bundle: {
+            optimizeTranslationDirective: false,
+        },
+        baseUrl: 'http://127.0.0.1:3000',
     },
 })

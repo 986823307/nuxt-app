@@ -10,32 +10,34 @@ import {
 
 const { loggedIn } = useUserSession()
 
-const components: { title: string, href: string, description: string }[] = [
+const components = computed((): { title: string, href: string, description: string }[] => [
     {
-        title: '品牌故事',
+        title: useI18n().t('brandStory'),
         href: '/docs/components/alert-dialog',
         description:
       '***********************',
     },
     {
-        title: '公司简介',
+        title: useI18n().t('companyProfile'),
         href: '/docs/components/hover-card',
         description:
       '***********************',
     },
-]
+])
 </script>
 
 <template>
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem v-if="loggedIn">
-        <NavigationMenuLink href="/">
-          首页
+        <NavigationMenuLink :href="$localePath({ path: '/' })">
+          {{ $t('headerTab.home') }}
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>关于</NavigationMenuTrigger>
+        <NavigationMenuTrigger class="bg-transparent">
+          {{ $t('headerTab.about') }}
+        </NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
             <li v-for="component in components" :key="component.title">
@@ -55,8 +57,8 @@ const components: { title: string, href: string, description: string }[] = [
         </NavigationMenuContent>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuLink href="/help">
-          帮助
+        <NavigationMenuLink :href="$localePath({ path: '/help' })">
+          {{ $t('headerTab.help') }}
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>

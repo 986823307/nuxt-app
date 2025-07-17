@@ -1,0 +1,64 @@
+{
+  "welcome": "ようこそ",
+  "about": "について",
+  "help": "ヘルプ",
+  "brandStory": "ブランドストーリー",
+  "companyProfile": "会社概要",
+  "userCenter": "ユーザーセンター",
+  "emailError": "有効なメールアドレスを入力してください",
+  "passwordError": "パスワードは少なくとも6文字でなければなりません",
+  "loginTip": "ログインヒント",
+  "welcomeBack": "ようこそ",
+  "loginYourAccount": "ログインアカウント",
+  "emailPlaceholder": "有効なメールアドレスを入力してください",
+  "passwordPlaceholder": "パスワードを入力してください",
+  "orUseTheFollowingMethods": "または以下の方法を使用してください",
+  "noAccount": "アカウントがありません",
+  "register": "登録",
+  "clickNextToAgree": "次に進むと同意します",
+  "rulesAgreement": "ルールに同意します",
+  "and": "と",
+  "privacyAgreement": "プライバシーポリシー",
+  "userDescription": "mainブランチ上の最新のコミットに参加することで、次のリリースを待たずに新しい変更ヘルプモジュールのテストを行うことができます。",
+  "joinTime": "加入時間",
+  "logout": "ログアウト",
+  "logoutConfirm": "ログアウト確認",
+  "logoutDescription": "ログアウト後、再ログインが必要です。",
+  "cancel": "キャンセル",
+  "email": "メール",
+  "password": "パスワード",
+  "loginInfoWrong": "アカウントやパスワードが間違っています",
+  "layouts": {
+    "title": "初期NUXT"
+  },
+  "pages": {
+    "title": {
+      "home": "Nuxt アプリ",
+      "login": "ログイン",
+      "help": "ヘルプ",
+      "user": "ユーザーセンター"
+    },
+    "home": {
+      "description": "これは私の素晴らしいサイトですそれについてすべてをお教えしましょう.",
+      "languages": "ja-JP"
+    },
+    "login": {
+      "description": "ログインしてください",
+      "languages": "ja-JP"
+    },
+    "help": {
+      "description": "ヘルプ",
+      "languages": "ja-JP"
+    },
+    "user": {
+      "description": "ユーザー",
+      "languages": "ja-JP"
+    }
+  },
+  "headerTab": {
+    "home": "トップページ",
+    "about": "について",
+    "help": "ヘルプ"
+  },
+  "login": "ログイン＃ログイン＃"
+}

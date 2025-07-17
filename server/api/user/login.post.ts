@@ -6,6 +6,9 @@ const bodySchema = z.object({
 })
 
 export default defineEventHandler(async (event) => {
+    // 调用 `useTranslation`，它将返回翻译函数
+    const t = await useTranslation(event)
+
     // 使用h3内置api和zod进行请求体校验
     const { email, password } = await readValidatedBody(event, bodySchema.parse)
 
@@ -22,6 +25,6 @@ export default defineEventHandler(async (event) => {
     }
     throw createError({
         statusCode: 401,
-        message: '账号或密码错误',
+        message: t('loginInfoWrong'),
     })
 })

@@ -1,0 +1,64 @@
+{
+  "welcome": "Welcome",
+  "about": "About",
+  "help": "Help",
+  "brandStory": "Brand Story",
+  "companyProfile": "Company Profile",
+  "userCenter": "User Center",
+  "emailError": "Please enter a valid email",
+  "passwordError": "Password must be at least 6 characters long",
+  "loginTip": "Login Tip",
+  "welcomeBack": "Welcome Back",
+  "loginYourAccount": "Login Your Account",
+  "emailPlaceholder": "Please enter a valid email",
+  "passwordPlaceholder": "Please enter your password",
+  "orUseTheFollowingMethods": "Or Use The Following Methods",
+  "noAccount": "No Account",
+  "register": "Register",
+  "clickNextToAgree": "Click Next To Agree",
+  "rulesAgreement": "Rules Agreement",
+  "and": "And",
+  "privacyAgreement": "Privacy Agreement",
+  "userDescription": "This person is lazy, no introduction...",
+  "joinTime": "Join Time",
+  "logout": "Logout",
+  "logoutConfirm": "Logout Confirm",
+  "logoutDescription": "After logging out, you will need to log in again.",
+  "cancel": "Cancel",
+  "email": "Email",
+  "password": "Password",
+  "loginInfoWrong": "Incorrect account or password",
+  "layouts": {
+    "title": "Initial NUXT"
+  },
+  "pages": {
+    "title": {
+      "home": "Nuxt App",
+      "login": "Login",
+      "help": "Help",
+      "user": "User Center"
+    },
+    "home": {
+      "description": "This is my amazing site, let me tell you all about it.",
+      "languages": "en-US"
+    },
+    "login": {
+      "description": "Login to your account",
+      "languages": "en-US"
+    },
+    "help": {
+      "description": "Help",
+      "languages": "en-US"
+    },
+    "user": {
+      "description": "User",
+      "languages": "en-US"
+    }
+  },
+  "headerTab": {
+    "home": "HOME",
+    "about": "About",
+    "help": "Help"
+  },
+  "login": "log on"
+}

@@ -45,7 +45,7 @@ async function logout() {
           </AvatarFallback>
         </Avatar>
       </HoverCardTrigger>
-      <HoverCardContent align="end" side="bottom">
+      <HoverCardContent class="w-auto" align="end" side="bottom">
         <div class="flex justify-between space-x-4">
           <Avatar>
             <AvatarImage
@@ -64,25 +64,24 @@ async function logout() {
             <h4 class="text-sm font-semibold">
               {{ user?.name }}
             </h4>
-            <p class="text-sm">
-              这个人很懒,简介什么都没有呀...
+            <p class="text-sm max-w-80">
+              {{ $t('userDescription') }}
             </p>
             <div class="flex items-center pt-2">
               <CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
               <span class="text-xs text-muted-foreground">
-                加入时间：2025-01-01
+                {{ $t('joinTime') }} : {{ new Date().toLocaleDateString() }}
               </span>
             </div>
             <Separator class="my-2" />
-            <div class="flex h-4 items-center text-xs">
-              <Button variant="link">
-                个人中心
+            <div class="flex h-4 items-center justify-around text-xs">
+              <Button variant="link" class="cursor-pointer" @click="navigateTo($localePath({ path: '/user' }))">
+                {{ $t('userCenter') }}
               </Button>
               <Separator orientation="vertical" />
-
               <AlertDialogTrigger>
-                <Button variant="link">
-                  登出
+                <Button variant="link" class="cursor-pointer">
+                  {{ $t('logout') }}
                 </Button>
               </AlertDialogTrigger>
             </div>
@@ -92,15 +91,15 @@ async function logout() {
     </HoverCard>
     <AlertDialogContent>
       <AlertDialogHeader>
-        <AlertDialogTitle>确定要登出吗?</AlertDialogTitle>
+        <AlertDialogTitle>{{ $t('logoutConfirm') }}</AlertDialogTitle>
         <AlertDialogDescription>
-          登出后,您将需要重新登录.
+          {{ $t('logoutDescription') }}
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCancel>取消</AlertDialogCancel>
+        <AlertDialogCancel>{{ $t('cancel') }}</AlertDialogCancel>
         <AlertDialogAction @click="logout">
-          登出
+          {{ $t('logout') }}
         </AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>

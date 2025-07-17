@@ -15,15 +15,19 @@ const props = defineProps<{
 }>()
 
 const { fetch: refreshSession } = useUserSession()
+const localeRoute = useLocaleRoute()
+const redirectUrl = useRoute().query.redirectUrl as string
 
 const formSchema = toTypedSchema(z.object({
-    email: z.string().email('请输入有效的邮箱'),
-    password: z.string().min(6, '密码不少于6个字数'),
+    email: z.string().email(useI18n().t('emailError')),
+    password: z.string().min(6, useI18n().t('passwordError')),
 }))
 
 const { isFieldDirty, handleSubmit } = useForm({
     validationSchema: formSchema,
 })
+
+const { t } = useI18n()
 
 const onSubmit = handleSubmit((values) => {
     console.log('表单提交!', values)
@@ -36,10 +40,10 @@ const onSubmit = handleSubmit((values) => {
         console.log('登录响应数据', data)
         // 将token保存到cookie中
         refreshSession().then(() => {
-            navigateTo('/')
+            navigateTo(localeRoute({ path: redirectUrl || '/' })?.fullPath)
         })
     }).catch((e) => {
-        toast('登录提示', {
+        toast(t('loginTip'), {
             description: e.data.message,
         })
     })
@@ -54,36 +58,36 @@ const onSubmit = handleSubmit((values) => {
           <div class="flex flex-col gap-6">
             <div class="flex flex-col items-center text-center">
               <h1 class="text-2xl font-bold">
-                欢迎回来
+                {{ $t('welcomeBack') }}
               </h1>
               <p class="text-muted-foreground text-balance">
-                登录你的账户
+                {{ $t('loginYourAccount') }}
               </p>
             </div>
             <FormField v-slot="{ componentField }" name="email" :validate-on-blur="!isFieldDirty">
               <FormItem v-auto-animate>
-                <FormLabel>邮箱</FormLabel>
+                <FormLabel>{{ $t('email') }}</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="请输入有效的邮箱" v-bind="componentField" />
+                  <Input type="text" :placeholder="useI18n().t('emailPlaceholder')" v-bind="componentField" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             </FormField>
             <FormField v-slot="{ componentField }" name="password" :validate-on-blur="!isFieldDirty">
               <FormItem v-auto-animate>
-                <FormLabel>密码</FormLabel>
+                <FormLabel>{{ $t('password') }}</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="请输入您的密码" v-bind="componentField" />
+                  <Input type="password" :placeholder="useI18n().t('passwordPlaceholder')" v-bind="componentField" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             </FormField>
             <Button type="submit" class="w-full cursor-pointer">
-              登录
+              {{ $t('login') }}
             </Button>
             <div class="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
               <span class="bg-card text-muted-foreground relative z-10 px-2">
-                或者用以下方式：
+                {{ $t('orUseTheFollowingMethods') }}
               </span>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -116,9 +120,9 @@ const onSubmit = handleSubmit((values) => {
               </Button>
             </div>
             <div class="text-center text-sm">
-              没有账户？
+              {{ $t('noAccount') }}
               <a href="#" class="underline underline-offset-4">
-                注册
+                {{ $t('register') }}
               </a>
             </div>
           </div>
@@ -133,8 +137,10 @@ const onSubmit = handleSubmit((values) => {
       </CardContent>
     </Card>
     <div class="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-      点击下一步即同意 <a href="#">规则协议</a>
-      和 <a href="#">隐私协议</a>.
+      {{ $t('clickNextToAgree') }}
+      <a href="#">{{ $t('rulesAgreement') }}</a>
+      {{ $t('and') }}
+      <a href="#">{{ $t('privacyAgreement') }}</a>.
     </div>
   </div>
 </template>

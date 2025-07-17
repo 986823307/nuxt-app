@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import LoginForm from '@/components/LoginForm.vue'
 
+definePageMeta({
+    title: 'pages.title.login',
+})
+const { t } = useI18n()
+
 useSeoMeta({
-    title: '登录',
-    ogTitle: '登录',
-    description: 'This is my amazing site, let me tell you all about it.',
-    ogDescription: 'This is my amazing site, let me tell you all about it.',
-    ogImage: 'https://picsum.photos/seed/picsum/200/300',
-    twitterCard: 'summary_large_image',
+    description: t('pages.login.description'),
 })
 </script>
 
