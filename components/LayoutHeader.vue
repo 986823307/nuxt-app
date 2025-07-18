@@ -24,12 +24,7 @@ const currentLocale = ref(locale.value)
       <div class="flex items-center gap-2 flex-1 justify-end">
         <!-- 主题切换按钮 -->
         <ColorModeSelect />
-        <!-- 客服按钮 -->
-        <UButton
-          icon="i-lucide-message-circle-more"
-          color="neutral"
-          variant="ghost"
-        />
+        <!-- 语言切换按钮 -->
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <UButton
@@ -48,6 +43,12 @@ const currentLocale = ref(locale.value)
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
+        <!-- 客服按钮 -->
+        <UButton
+          icon="i-lucide-message-circle-more"
+          color="neutral"
+          variant="ghost"
+        />
         <!-- 用户头像 -->
         <UserAvatar v-if="loggedIn" />
       </div>

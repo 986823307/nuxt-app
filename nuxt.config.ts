@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     },
     ui: {
         // 禁用google字体，以免启动项目国内获取慢堵塞项目启动
-        fonts: false,
+        // fonts: false,
     },
     css: ['~/assets/css/main.css'],
     app: {
